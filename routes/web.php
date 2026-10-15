@@ -12,4 +12,3 @@ Route::resource('portfolios', PortfolioController::class);
 
 Route::get('p/{portfolio}', [PortfolioController::class, 'publicShow'])
     ->name('portfolios.public');
-
