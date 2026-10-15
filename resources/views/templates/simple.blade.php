@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,27 +8,51 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    {{-- One font family for the whole page --}}
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 
 /* =========================================
-   COLOR PALETTE (same as the other templates)
+   DESIGN TOKENS
+   Same palette as the other templates.
+   Hierarchy comes from size, weight and
+   color tone, never from extra fonts.
 ========================================= */
 
 :root {
+  /* Color */
   --background: #FFF8D4;
   --sand: #FFFEFA;
-  --foreground: #132EB9;
-  --dark: #132EB9;
-
   --card: #FFFEFA;
   --border: #799CF0;
 
-  --primary: #132EB9;
-  --muted-foreground: #132EB9;
+  --primary: #132EB9;      /* headings, links, accents */
+  --foreground: #1B2455;   /* body text: deep navy, easy on the eyes */
+  --muted: #4A5596;        /* secondary text (6.5:1 on background) */
+
+  /* Type scale (one family: Manrope) */
+  --font: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-display: clamp(2.25rem, 5vw, 3.25rem);  /* name */
+  --fs-h2: 1.75rem;                            /* section titles */
+  --fs-h3: 1.25rem;                            /* item titles */
+  --fs-lead: 1.125rem;                         /* intro paragraphs */
+  --fs-body: 1rem;                             /* normal text */
+  --fs-small: 0.875rem;                        /* links, buttons, meta */
+  --fs-label: 0.8125rem;                       /* field labels */
+
+  /* Spacing scale (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 80px;
+
+  --radius: 10px;
 }
 
 /* =========================================
@@ -49,14 +72,17 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
   margin: 0;
-  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  color: var(--primary);
+  font-family: var(--font);
 }
 
 p {
@@ -80,75 +106,81 @@ section[id] {
   scroll-margin-top: 90px;
 }
 
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* TOP NAVIGATION */
-.portfolio-navbar {
-    width: 100%;
-    background: #132EB9;
-    padding: 12px 24px;
-    box-sizing: border-box;
-}
-
-.portfolio-navbar-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.navbar-brand {
-    color: #FFF8D4;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.navbar-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 14px;
-    border: 1px solid rgb(255 248 212 / 35%);
-    border-radius: 999px;
-    color: #FFF8D4;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    transition: background 0.2s ease;
-}
-
-.navbar-button:hover {
-    background: rgb(255 248 212 / 12%);
-}
-
-@media (max-width: 650px) {
-    .portfolio-navbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-actions {
-        flex-wrap: wrap;
-    }
+  padding: 0 var(--space-3);
 }
 
 /* =========================================
-   NAVIGATION (UNCHANGED)
+   PREVIEW BAR (hidden on public pages)
+========================================= */
+
+.portfolio-navbar {
+  width: 100%;
+  background: var(--primary);
+  padding: 12px var(--space-3);
+}
+
+.portfolio-navbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-brand {
+  color: #FFF8D4;
+  font-size: var(--fs-small);
+  font-weight: 700;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.navbar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid rgb(255 248 212 / 40%);
+  border-radius: 999px;
+  color: #FFF8D4;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.navbar-button:hover {
+  background: rgb(255 248 212 / 14%);
+}
+
+@media (max-width: 650px) {
+  .portfolio-navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================
+   SITE NAVIGATION
 ========================================= */
 
 .site-header {
@@ -160,9 +192,7 @@ section[id] {
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header.scrolled {
@@ -171,32 +201,28 @@ section[id] {
 }
 
 .nav-container {
-  width: min(1200px, 92%);
+  width: min(1100px, calc(100% - 48px));
   min-height: 76px;
   margin-inline: auto;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-3);
 }
-
-/* Logo */
 
 .nav-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
-  color: var(--foreground);
-  font-size: 1.05rem;
+  color: var(--primary);
+  font-size: var(--fs-body);
   font-weight: 800;
   white-space: nowrap;
 }
 
 .nav-brand img {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -204,36 +230,29 @@ section[id] {
 .nav-brand-icon {
   width: 44px;
   height: 44px;
-
   display: grid;
   place-items: center;
-
   border-radius: 50%;
   background: var(--primary);
   color: #FFF8D4;
-
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
-
-/* Desktop navigation links */
 
 .nav-menu {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 26px;
+  gap: 24px;
 }
 
 .nav-link {
   position: relative;
   display: inline-block;
   padding: 10px 0;
-
   color: var(--foreground);
-  font-size: 0.9rem;
-  font-weight: 700;
-
+  font-size: var(--fs-small);
+  font-weight: 600;
   transition: color 0.25s ease;
 }
 
@@ -242,24 +261,21 @@ section[id] {
   color: var(--primary);
 }
 
-/* Animated underline */
+.nav-link.is-active {
+  font-weight: 800;
+}
 
 .nav-link::after {
   content: "";
-
   position: absolute;
   left: 0;
   right: 0;
   bottom: 3px;
-
   height: 2px;
   border-radius: 2px;
-
   background: var(--primary);
-
   transform: scaleX(0);
   transform-origin: left;
-
   transition: transform 0.3s ease;
 }
 
@@ -268,21 +284,16 @@ section[id] {
   transform: scaleX(1);
 }
 
-/* Mobile navigation button */
-
 .nav-toggle {
   width: 44px;
   height: 44px;
-
   display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 6px;
-
   border: 1px solid var(--border);
   border-radius: 12px;
-
   background: transparent;
   cursor: pointer;
 }
@@ -291,13 +302,9 @@ section[id] {
   display: block;
   width: 21px;
   height: 2px;
-
   border-radius: 3px;
-  background: var(--foreground);
-
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+  background: var(--primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-toggle[aria-expanded="true"] span:first-child {
@@ -326,46 +333,33 @@ section[id] {
     top: 100%;
     left: 0;
     right: 0;
-
     display: flex;
     align-items: stretch;
     flex-direction: column;
     gap: 0;
-
     max-height: calc(100vh - 70px);
     overflow-y: auto;
-
-    padding: 12px 4% 20px;
-
+    padding: 12px 24px 20px;
     border-bottom: 1px solid var(--border);
-
     background: var(--background);
     box-shadow: 0 15px 24px rgb(19 46 185 / 8%);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transform: translateY(-10px);
-
-    transition:
-      opacity 0.25s ease,
-      visibility 0.25s ease,
-      transform 0.25s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
   }
 
   .nav-menu.open {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     transform: translateY(0);
   }
 
   .nav-link {
     display: block;
     padding: 14px 4px;
-
     border-bottom: 1px solid rgb(121 156 240 / 55%);
   }
 
@@ -376,58 +370,42 @@ section[id] {
   }
 }
 
-@media (max-width: 600px) {
-  .nav-container {
-    width: 90%;
-  }
-
-  .nav-brand {
-    font-size: 0.95rem;
-  }
-
-  .nav-brand img,
-  .nav-brand-icon {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-
 /* =========================================
    SHARED PIECES
 ========================================= */
 
-/* label + value (used in About, Details, Experience and Education) */
+/* Label above a value: small, muted, sentence case (easy to read) */
 .label {
   display: block;
-  margin-bottom: 4px;
-  color: var(--muted-foreground);
-  font-size: 11px;
-  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: var(--fs-label);
+  font-weight: 600;
   line-height: 1.4;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .value {
   display: block;
-  font-size: 16px;
+  color: var(--foreground);
+  font-size: var(--fs-body);
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
-/* the most important field in a row */
+/* The most important field in a row stands out by size and color */
 .field--main .value {
-  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
+  color: var(--primary);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .fields {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px 32px;
+  gap: var(--space-2) var(--space-4);
+  align-items: start;
 }
 
 .fields--two {
@@ -435,16 +413,15 @@ section[id] {
 }
 
 .fields--edu {
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr) minmax(0, 0.7fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr) minmax(0, 0.6fr);
 }
 
-/* text link with a small arrow */
 .link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--primary);
-  font-size: 14px;
+  font-size: var(--fs-small);
   font-weight: 700;
   transition: gap 0.2s ease;
 }
@@ -458,32 +435,33 @@ section[id] {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: 48px;
   padding: 12px 24px;
-  border: 1.5px solid var(--foreground);
-  border-radius: 8px;
-  font-size: 14px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  font-size: var(--fs-small);
   font-weight: 700;
   line-height: 1.2;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn--solid {
-  background: var(--foreground);
+  background: var(--primary);
   color: var(--background);
 }
 
 .btn--solid:hover {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: #0E2290;
+  border-color: #0E2290;
 }
 
 .btn--line {
   background: transparent;
-  color: var(--foreground);
+  color: var(--primary);
 }
 
 .btn--line:hover {
-  background: var(--foreground);
+  background: var(--primary);
   color: var(--background);
 }
 
@@ -492,26 +470,26 @@ section[id] {
 ========================================= */
 
 .hero {
-    padding: 88px 0 80px;
-    text-align: center;
+  padding: var(--space-6) 0;
+  text-align: center;
 }
 
 .hero-photo {
-    width: 220px;
-    height: 220px;
-    margin: 0 auto 28px;
-    overflow: hidden;
-    border: 4px solid var(--background);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--primary);
+  width: 200px;
+  height: 200px;
+  margin: 0 auto var(--space-3);
+  overflow: hidden;
+  border: 4px solid var(--background);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--primary);
 }
 
 .hero-photo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .hero-placeholder {
@@ -520,20 +498,20 @@ section[id] {
   width: 100%;
   height: 100%;
   background: var(--sand);
-  color: var(--foreground);
+  color: var(--primary);
   font-size: 44px;
 }
 
 .hero-hello {
-  margin-bottom: 6px;
-  color: var(--muted-foreground);
-  font-size: 15px;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: var(--fs-lead);
   font-weight: 600;
 }
 
 .hero h1 {
-  margin-bottom: 10px;
-  font-size: clamp(34px, 5vw, 52px);
+  margin-bottom: 12px;
+  font-size: var(--fs-display);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -541,18 +519,18 @@ section[id] {
 }
 
 .hero-role {
-  margin-bottom: 18px;
-  color: var(--primary);
-  font-size: 18px;
+  margin-bottom: var(--space-2);
+  color: var(--foreground);
+  font-size: var(--fs-h3);
   font-weight: 700;
 }
 
 .hero-desc {
   max-width: 600px;
-  margin: 0 auto 32px;
-  color: var(--muted-foreground);
-  font-size: 17px;
-  line-height: 1.8;
+  margin: 0 auto var(--space-4);
+  color: var(--muted);
+  font-size: var(--fs-lead);
+  line-height: 1.75;
 }
 
 .hero-actions {
@@ -563,17 +541,19 @@ section[id] {
 }
 
 .hero-meta {
-  margin-top: 28px;
-  color: var(--muted-foreground);
-  font-size: 14px;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--fs-small);
 }
 
 /* =========================================
-   SECTIONS (title on the left, content on the right)
+   SECTIONS
+   Title column (left) + content column (right).
+   Same padding and gap in every section.
 ========================================= */
 
 .section {
-  padding: 72px 0;
+  padding: var(--space-6) 0;
 }
 
 .hero + .section {
@@ -587,8 +567,14 @@ section[id] {
 .section-grid {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
-  gap: 48px;
+  gap: var(--space-5);
   align-items: start;
+}
+
+/* Title stays in view while long content scrolls */
+.section-head {
+  position: sticky;
+  top: 110px;
 }
 
 .eyebrow {
@@ -596,14 +582,11 @@ section[id] {
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
-  color: var(--primary);
-  font-size: 12px;
+  color: var(--muted);
+  font-size: var(--fs-label);
   font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
 }
 
-/* the only decorative shape: one small dot */
 .eyebrow::before {
   content: "";
   width: 6px;
@@ -613,7 +596,7 @@ section[id] {
 }
 
 .section-title {
-  font-size: 28px;
+  font-size: var(--fs-h2);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -624,21 +607,22 @@ section[id] {
 ========================================= */
 
 .about-text {
-  font-size: 20px;
-  line-height: 1.75;
-  text-align: justify;
+  max-width: 68ch;
+  font-size: var(--fs-lead);
+  line-height: 1.8;
+  text-align: left;
 }
 
 .about-facts {
-  margin-top: 32px;
-  padding-top: 24px;
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--border);
 }
 
 .about-link {
   display: flex;
   width: fit-content;
-  margin-top: 24px;
+  margin-top: var(--space-3);
 }
 
 /* =========================================
@@ -648,7 +632,7 @@ section[id] {
 .details {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 40px;
+  gap: 0 var(--space-5);
   border-bottom: 1px solid var(--border);
 }
 
@@ -664,7 +648,7 @@ section[id] {
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .skill {
@@ -672,7 +656,8 @@ section[id] {
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--card);
-  font-size: 14px;
+  color: var(--foreground);
+  font-size: var(--fs-small);
   font-weight: 600;
   line-height: 1.4;
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -684,7 +669,7 @@ section[id] {
 }
 
 /* =========================================
-   PROJECTS (simple list)
+   PROJECTS
 ========================================= */
 
 .projects {
@@ -693,34 +678,26 @@ section[id] {
 
 .project {
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) auto;
-  gap: 12px 24px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px var(--space-3);
   align-items: start;
-  padding: 26px 0;
+  padding: var(--space-3) 0;
   border-top: 1px solid var(--border);
 }
 
-.project-no {
-  padding-top: 3px;
-  color: var(--primary);
-  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-}
-
 .project h3 {
-  margin-bottom: 6px;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.3;
+  margin-bottom: 4px;
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .project p {
-  max-width: 560px;
-  color: var(--muted-foreground);
-  font-size: 15px;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: var(--fs-body);
   line-height: 1.7;
-  text-align: justify;
+  text-align: left;
 }
 
 .project .link {
@@ -737,18 +714,18 @@ section[id] {
 }
 
 .entry {
-  padding: 26px 0;
+  padding: var(--space-3) 0;
   border-top: 1px solid var(--border);
 }
 
 .entry-note {
-  margin-top: 18px;
+  margin-top: var(--space-2);
 }
 
 .entry-note p {
-  max-width: 640px;
-  color: var(--muted-foreground);
-  font-size: 15px;
+  max-width: 68ch;
+  color: var(--muted);
+  font-size: var(--fs-body);
   line-height: 1.75;
 }
 
@@ -759,17 +736,17 @@ section[id] {
 .contact-text h3 {
   max-width: 560px;
   margin-bottom: 12px;
-  font-size: 30px;
+  font-size: var(--fs-h2);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.3;
   letter-spacing: -0.01em;
 }
 
 .contact-text p {
   max-width: 520px;
-  margin-bottom: 28px;
-  color: var(--muted-foreground);
-  font-size: 17px;
+  margin-bottom: var(--space-4);
+  color: var(--muted);
+  font-size: var(--fs-lead);
 }
 
 .contact-actions {
@@ -781,9 +758,9 @@ section[id] {
 .socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
-  margin-top: 28px;
-  padding-top: 22px;
+  gap: var(--space-1) var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--border);
 }
 
@@ -791,7 +768,8 @@ section[id] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  color: var(--foreground);
+  font-size: var(--fs-small);
   font-weight: 700;
   transition: color 0.2s ease;
 }
@@ -805,11 +783,11 @@ section[id] {
 ========================================= */
 
 footer {
-  padding: 24px;
+  padding: var(--space-3);
   border-top: 1px solid var(--border);
-  color: var(--muted-foreground);
+  color: var(--muted);
   text-align: center;
-  font-size: 14px;
+  font-size: var(--fs-small);
 }
 
 footer a {
@@ -823,20 +801,20 @@ footer a {
 
 @media (max-width: 800px) {
   .hero {
-    padding: 56px 0;
+    padding: var(--space-5) 0;
   }
 
   .section {
-    padding: 56px 0;
+    padding: var(--space-5) 0;
   }
 
   .section-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: var(--space-3);
   }
 
-  .about-text {
-    font-size: 18px;
+  .section-head {
+    position: static;
   }
 
   .details {
@@ -851,16 +829,11 @@ footer a {
   }
 
   .project {
-    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .project .link {
-    grid-column: 2;
     padding-top: 0;
-  }
-
-  .contact-text h3 {
-    font-size: 26px;
   }
 }
 
@@ -1077,7 +1050,7 @@ footer a {
         @endif
 
         <p class="hero-desc">
-          "Welcome to my portfolio! Here, you can explore my background, educational achievements, skills, projects, and experiences that reflect my personal and professional journey."
+            Welcome to my portfolio! Here, you can explore my background, educational achievements, skills, projects, and experiences that reflect my personal and professional journey.
         </p>
 
         <div class="hero-actions">
@@ -1103,7 +1076,7 @@ footer a {
 <section class="section" id="about">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">Who I am</span>
             <h2 class="section-title">About Me</h2>
         </div>
@@ -1149,7 +1122,7 @@ footer a {
 <section class="section section--sand" id="personal-details">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">The basics</span>
             <h2 class="section-title">Personal Details</h2>
         </div>
@@ -1175,7 +1148,7 @@ footer a {
 <section class="section" id="skills">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">What I do</span>
             <h2 class="section-title">Skills &amp; Expertise</h2>
         </div>
@@ -1200,7 +1173,7 @@ footer a {
 <section class="section section--sand" id="projects">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">What I've built</span>
             <h2 class="section-title">Projects</h2>
         </div>
@@ -1210,8 +1183,6 @@ footer a {
             @foreach($portfolio->projects as $project)
 
                 <article class="project">
-
-                    <span class="project-no">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
 
                     <div>
                         <h3>{{ $project->name }}</h3>
@@ -1249,7 +1220,7 @@ footer a {
 <section class="section" id="experience">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">Where I worked</span>
             <h2 class="section-title">Work Experience</h2>
         </div>
@@ -1306,7 +1277,7 @@ footer a {
 <section class="section section--sand" id="education">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">Studies</span>
             <h2 class="section-title">Education</h2>
         </div>
@@ -1361,7 +1332,7 @@ footer a {
 <section class="section" id="contact">
     <div class="container section-grid">
 
-        <div>
+        <div class="section-head">
             <span class="eyebrow">Say hello</span>
             <h2 class="section-title">Get in Touch</h2>
         </div>
@@ -1426,7 +1397,7 @@ footer a {
 </footer>
 
 
-<!-- NAVIGATION SCRIPT (UNCHANGED) -->
+<!-- NAVIGATION SCRIPT -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('siteHeader');
@@ -1492,9 +1463,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Close the mobile menu when returning to desktop width.
+    // Close the mobile menu when returning to desktop width
+    // (1000px matches the CSS breakpoint).
     window.addEventListener('resize', function () {
-        if (window.innerWidth > 900) {
+        if (window.innerWidth > 1000) {
             menu.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
         }
