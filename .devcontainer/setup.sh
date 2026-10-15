@@ -4,6 +4,10 @@ set -e
 echo "Installing PHP PostgreSQL driver..."
 
 sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt-get update
+
 sudo apt-get install -y \
   php8.4-cli \
   php8.4-pgsql \
@@ -16,9 +20,11 @@ sudo apt-get install -y \
   php8.4-bcmath
 
 echo "Checking PostgreSQL driver..."
+
 php -m | grep -i pdo_pgsql
 
 echo "Installing Laravel dependencies..."
+
 composer install --no-interaction
 
-echo "PostgreSQL driver is ready."
+echo "PostgreSQL driver setup complete!"
