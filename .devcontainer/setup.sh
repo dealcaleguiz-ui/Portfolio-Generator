@@ -1,4 +1,3 @@
-cat > .devcontainer/setup.sh << 'EOF'
 #!/usr/bin/env bash
 set -e
 
@@ -33,4 +32,3 @@ echo "Installing Laravel dependencies..."
 composer install --no-interaction
 
 echo "PostgreSQL driver setup complete!"
-EOF
