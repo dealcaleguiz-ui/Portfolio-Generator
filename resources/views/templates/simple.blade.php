@@ -112,6 +112,7 @@ section[id] {
   border-radius: 4px;
 }
 
+/* Centered page width */
 .container {
   width: 100%;
   max-width: 1100px;
@@ -123,6 +124,7 @@ section[id] {
    PREVIEW BAR (hidden on public pages)
 ========================================= */
 
+/* Blue preview bar at the very top */
 .portfolio-navbar {
   width: 100%;
   background: var(--primary);
@@ -150,6 +152,7 @@ section[id] {
   gap: var(--space-1);
 }
 
+/* Rounded buttons in the preview bar */
 .navbar-button {
   display: inline-flex;
   justify-content: center;
@@ -168,6 +171,7 @@ section[id] {
   background: rgb(255 248 212 / 14%);
 }
 
+/* Preview bar stacks on small screens */
 @media (max-width: 650px) {
   .portfolio-navbar-inner {
     flex-direction: column;
@@ -183,6 +187,7 @@ section[id] {
    SITE NAVIGATION
 ========================================= */
 
+/* Sticky navigation bar */
 .site-header {
   position: sticky;
   top: 0;
@@ -200,6 +205,7 @@ section[id] {
   box-shadow: 0 8px 24px rgb(19 46 185 / 8%);
 }
 
+/* Keeps the logo and menu aligned */
 .nav-container {
   width: min(1100px, calc(100% - 48px));
   min-height: 76px;
@@ -210,6 +216,7 @@ section[id] {
   gap: var(--space-3);
 }
 
+/* Photo and name on the left */
 .nav-brand {
   display: inline-flex;
   align-items: center;
@@ -239,6 +246,7 @@ section[id] {
   font-weight: 800;
 }
 
+/* Menu links on the right */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -246,6 +254,7 @@ section[id] {
   gap: 24px;
 }
 
+/* One menu link */
 .nav-link {
   position: relative;
   display: inline-block;
@@ -265,6 +274,7 @@ section[id] {
   font-weight: 800;
 }
 
+/* Underline that grows on hover */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -284,6 +294,7 @@ section[id] {
   transform: scaleX(1);
 }
 
+/* Menu button (only shown on small screens) */
 .nav-toggle {
   width: 44px;
   height: 44px;
@@ -319,6 +330,7 @@ section[id] {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Mobile menu */
 @media (max-width: 1000px) {
   .nav-container {
     min-height: 70px;
@@ -401,6 +413,7 @@ section[id] {
   line-height: 1.35;
 }
 
+/* Row of label and value pairs */
 .fields {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
@@ -416,6 +429,7 @@ section[id] {
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr) minmax(0, 0.6fr);
 }
 
+/* Text link with an arrow */
 .link {
   display: inline-flex;
   align-items: center;
@@ -430,6 +444,7 @@ section[id] {
   gap: 12px;
 }
 
+/* Shape shared by all buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -445,6 +460,7 @@ section[id] {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
+/* Filled button */
 .btn--solid {
   background: var(--primary);
   color: var(--background);
@@ -455,6 +471,7 @@ section[id] {
   border-color: #0E2290;
 }
 
+/* Outlined button */
 .btn--line {
   background: transparent;
   color: var(--primary);
@@ -474,6 +491,7 @@ section[id] {
   text-align: center;
 }
 
+/* Round profile picture with a ring */
 .hero-photo {
   width: 200px;
   height: 200px;
@@ -525,6 +543,7 @@ section[id] {
   font-weight: 700;
 }
 
+/* Welcome text under the name */
 .hero-desc {
   max-width: 600px;
   margin: 0 auto var(--space-4);
@@ -564,6 +583,7 @@ section[id] {
   background: var(--sand);
 }
 
+/* Title on the left, content on the right */
 .section-grid {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
@@ -577,6 +597,7 @@ section[id] {
   top: 110px;
 }
 
+/* Small label above each section title */
 .eyebrow {
   display: flex;
   align-items: center;
@@ -629,6 +650,7 @@ section[id] {
    PERSONAL DETAILS
 ========================================= */
 
+/* Two-column list of details */
 .details {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -651,6 +673,7 @@ section[id] {
   gap: 12px;
 }
 
+/* One skill tag */
 .skill {
   padding: 8px 18px;
   border: 1px solid var(--border);
@@ -676,6 +699,7 @@ section[id] {
   border-bottom: 1px solid var(--border);
 }
 
+/* One project row */
 .project {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -713,6 +737,7 @@ section[id] {
   border-bottom: 1px solid var(--border);
 }
 
+/* One experience or education entry */
 .entry {
   padding: var(--space-3) 0;
   border-top: 1px solid var(--border);
@@ -755,6 +780,7 @@ section[id] {
   gap: 12px;
 }
 
+/* Row of social media links */
 .socials {
   display: flex;
   flex-wrap: wrap;
@@ -799,6 +825,7 @@ footer a {
    RESPONSIVE
 ========================================= */
 
+/* Tablets and phones: one column */
 @media (max-width: 800px) {
   .hero {
     padding: var(--space-5) 0;
@@ -837,6 +864,7 @@ footer a {
   }
 }
 
+/* Small phones: buttons stack */
 @media (max-width: 480px) {
   .hero-actions,
   .contact-actions {
@@ -845,6 +873,7 @@ footer a {
   }
 }
 
+/* Turn off animations for people who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -862,283 +891,300 @@ footer a {
 
 <body>
 <!-- TOP NAVIGATION -->
- @unless($isPublic ?? false)
+{{-- Preview bar: hidden when the portfolio is opened from the public link --}}
+@unless($isPublic ?? false)
 <nav class="portfolio-navbar">
-    <div class="portfolio-navbar-inner">
+  <div class="portfolio-navbar-inner">
 
-        <a href="{{ route('portfolios.index') }}" class="navbar-brand">
-            Portfolio Preview · PortfolioGen
-        </a>
+    <a href="{{ route('portfolios.index') }}" class="navbar-brand">
+      Portfolio Preview · PortfolioGen
+    </a>
 
-        <div class="navbar-actions">
-            <a href="{{ route('portfolios.index') }}" class="navbar-button">
-                My Portfolios
-            </a>
+    <div class="navbar-actions">
+      <a href="{{ route('portfolios.index') }}" class="navbar-button">
+        My Portfolios
+      </a>
 
-            <a href="{{ route('portfolios.edit', $portfolio->id) }}" class="navbar-button">
-                Edit Portfolio
-            </a>
+      <a href="{{ route('portfolios.edit', $portfolio->id) }}" class="navbar-button">
+        Edit Portfolio
+      </a>
 
-            <a href="{{ route('portfolios.templates', $portfolio->id) }}" class="navbar-button">
-                Change Template
-            </a>
-        </div>
-
+      <a href="{{ route('portfolios.templates', $portfolio->id) }}" class="navbar-button">
+        Change Template
+      </a>
     </div>
+
+  </div>
 </nav>
 @endunless
 
+{{-- Site navigation bar --}}
 <header class="site-header" id="siteHeader">
-    <nav class="nav-container">
+  <nav class="nav-container">
 
-        <a href="#home" class="nav-brand">
+    <a href="#home" class="nav-brand">
 
-            @if(!empty($portfolio->photo))
-                <img
-                    src="{{ $portfolio->photo }}"
-                    alt="{{ $portfolio->full_name ?? 'Profile picture' }}"
-                >
-            @else
-                <span class="nav-brand-icon">
-                    {{ strtoupper(substr($portfolio->full_name ?? 'P', 0, 1)) }}
-                </span>
-            @endif
-
-            <span>
-                {{ $portfolio->full_name ?? 'My Portfolio' }}
-            </span>
-
-        </a>
-
-        <button
-            type="button"
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-            aria-controls="navMenu"
+      @if(!empty($portfolio->photo))
+        <img
+          src="{{ $portfolio->photo }}"
+          alt="{{ $portfolio->full_name ?? 'Profile picture' }}"
         >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+      @else
+        <span class="nav-brand-icon">
+          {{ strtoupper(substr($portfolio->full_name ?? 'P', 0, 1)) }}
+        </span>
+      @endif
 
-        <div class="nav-menu" id="navMenu">
+      <span>
+        {{ $portfolio->full_name ?? 'My Portfolio' }}
+      </span>
 
-            <a href="#home" class="nav-link is-active">
-                Home
-            </a>
+    </a>
 
-            <a href="#about" class="nav-link">
-                About
-            </a>
+    {{-- Menu button (shown on small screens) --}}
+    <button
+      type="button"
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-            <a href="#personal-details" class="nav-link">
-                Personal Details
-            </a>
+    {{-- Links to each section --}}
+    <div class="nav-menu" id="navMenu">
 
-            <a href="#skills" class="nav-link">
-                Skills
-            </a>
+      <a href="#home" class="nav-link is-active">
+        Home
+      </a>
 
-            <a href="#projects" class="nav-link">
-                Projects
-            </a>
+      <a href="#about" class="nav-link">
+        About
+      </a>
 
-            <a href="#experience" class="nav-link">
-                Experience
-            </a>
+      <a href="#personal-details" class="nav-link">
+        Personal Details
+      </a>
 
-            <a href="#education" class="nav-link">
-                Education
-            </a>
+      <a href="#skills" class="nav-link">
+        Skills
+      </a>
 
-            <a href="#contact" class="nav-link">
-                Contact
-            </a>
+      <a href="#projects" class="nav-link">
+        Projects
+      </a>
 
-        </div>
+      <a href="#experience" class="nav-link">
+        Experience
+      </a>
 
-    </nav>
+      <a href="#education" class="nav-link">
+        Education
+      </a>
+
+      <a href="#contact" class="nav-link">
+        Contact
+      </a>
+
+    </div>
+
+  </nav>
 </header>
 
+{{-- Prepare the values used by the sections below --}}
 @php
-    $fullName  = $portfolio->full_name ?? $portfolio->name ?? 'My Portfolio';
-    $aboutText = $portfolio->about ?? $portfolio->bio ?? '';
-    $jobTitle  = $portfolio->title ?? $portfolio->job_title ?? $portfolio->headline ?? $portfolio->profession ?? '';
-    $website   = $portfolio->website ?? $portfolio->website_url ?? '';
-    $profilePhoto = $portfolio->photo ?? $portfolio->profile_picture ?? null;
+  // Basic profile values (falls back to other column names)
+  $fullName  = $portfolio->full_name ?? $portfolio->name ?? 'My Portfolio';
+  $aboutText = $portfolio->about ?? $portfolio->bio ?? '';
+  $jobTitle  = $portfolio->title ?? $portfolio->job_title ?? $portfolio->headline ?? $portfolio->profession ?? '';
+  $website   = $portfolio->website ?? $portfolio->website_url ?? '';
+  // Photo: keep data URLs and full URLs, add the storage path to saved files
+  $profilePhoto = $portfolio->photo ?? $portfolio->profile_picture ?? null;
 
-    if (
-        $profilePhoto &&
-        !str_starts_with($profilePhoto, 'data:') &&
-        !filter_var($profilePhoto, FILTER_VALIDATE_URL)
-    ) {
-        $profilePhoto = asset('storage/' . $profilePhoto);
-    }
+  if (
+    $profilePhoto &&
+    !str_starts_with($profilePhoto, 'data:') &&
+    !filter_var($profilePhoto, FILTER_VALIDATE_URL)
+  ) {
+    $profilePhoto = asset('storage/' . $profilePhoto);
+  }
 
-    $heroMeta = implode(' · ', array_filter([$portfolio->address ?? '', $portfolio->email ?? '']));
+  // Line under the buttons: address and email
+  $heroMeta = implode(' · ', array_filter([$portfolio->address ?? '', $portfolio->email ?? '']));
 
-    $details = array_filter([
-        ['label' => 'Full Name', 'value' => $fullName],
-        ['label' => 'Title',     'value' => $jobTitle],
-        ['label' => 'Email',     'value' => $portfolio->email ?? ''],
-        ['label' => 'Phone',     'value' => $portfolio->phone ?? ''],
-        ['label' => 'Location',  'value' => $portfolio->address ?? ''],
-        ['label' => 'Website',   'value' => $website],
-    ], fn ($item) => !empty($item['value']));
+  // Items for Personal Details (empty values are removed)
+  $details = array_filter([
+    ['label' => 'Full Name', 'value' => $fullName],
+    ['label' => 'Title',     'value' => $jobTitle],
+    ['label' => 'Email',     'value' => $portfolio->email ?? ''],
+    ['label' => 'Phone',     'value' => $portfolio->phone ?? ''],
+    ['label' => 'Location',  'value' => $portfolio->address ?? ''],
+    ['label' => 'Website',   'value' => $website],
+  ], fn ($item) => !empty($item['value']));
 
-    // Skills: accepts a comma-separated string, a JSON array, an array,
-    // or a collection of skill models (names containing commas are split too).
-    $rawSkills = $portfolio->skills ?? [];
+  // Skills: accepts a comma-separated string, a JSON array, an array,
+  // or a collection of skill models (names containing commas are split too).
+  $rawSkills = $portfolio->skills ?? [];
 
-    if (is_string($rawSkills)) {
-        $decoded = json_decode($rawSkills, true);
-        $rawSkills = is_array($decoded) ? $decoded : [$rawSkills];
-    }
+  if (is_string($rawSkills)) {
+    $decoded = json_decode($rawSkills, true);
+    $rawSkills = is_array($decoded) ? $decoded : [$rawSkills];
+  }
 
-    $skillList = collect($rawSkills)
-        ->map(fn ($skill) => is_object($skill)
-            ? ($skill->name ?? '')
-            : (is_array($skill) ? ($skill['name'] ?? '') : $skill))
-        ->flatMap(fn ($name) => preg_split('/[,;|\r\n]+/', (string) $name))
-        ->map(fn ($name) => trim($name))
-        ->filter()
-        ->unique()
-        ->values();
+  $skillList = collect($rawSkills)
+    ->map(fn ($skill) => is_object($skill)
+      ? ($skill->name ?? '')
+      : (is_array($skill) ? ($skill['name'] ?? '') : $skill))
+    ->flatMap(fn ($name) => preg_split('/[,;|\r\n]+/', (string) $name))
+    ->map(fn ($name) => trim($name))
+    ->filter()
+    ->unique()
+    ->values();
 
-    // Social links: pick a brand icon from the platform name.
-    $socialIcon = function ($platform) {
-        $p = strtolower((string) $platform);
+  // Social links: pick a brand icon from the platform name.
+  $socialIcon = function ($platform) {
+    $p = strtolower((string) $platform);
 
-        return match (true) {
-            str_contains($p, 'github')    => 'fa-brands fa-github',
-            str_contains($p, 'linkedin')  => 'fa-brands fa-linkedin-in',
-            str_contains($p, 'facebook')  => 'fa-brands fa-facebook-f',
-            str_contains($p, 'instagram') => 'fa-brands fa-instagram',
-            str_contains($p, 'twitter'),
-            str_contains($p, 'x.com')     => 'fa-brands fa-x-twitter',
-            str_contains($p, 'youtube')   => 'fa-brands fa-youtube',
-            str_contains($p, 'tiktok')    => 'fa-brands fa-tiktok',
-            str_contains($p, 'behance')   => 'fa-brands fa-behance',
-            str_contains($p, 'dribbble')  => 'fa-brands fa-dribbble',
-            default                       => 'fa-solid fa-link',
-        };
+    return match (true) {
+      str_contains($p, 'github')    => 'fa-brands fa-github',
+      str_contains($p, 'linkedin')  => 'fa-brands fa-linkedin-in',
+      str_contains($p, 'facebook')  => 'fa-brands fa-facebook-f',
+      str_contains($p, 'instagram') => 'fa-brands fa-instagram',
+      str_contains($p, 'twitter'),
+      str_contains($p, 'x.com')     => 'fa-brands fa-x-twitter',
+      str_contains($p, 'youtube')   => 'fa-brands fa-youtube',
+      str_contains($p, 'tiktok')    => 'fa-brands fa-tiktok',
+      str_contains($p, 'behance')   => 'fa-brands fa-behance',
+      str_contains($p, 'dribbble')  => 'fa-brands fa-dribbble',
+      default                       => 'fa-solid fa-link',
     };
+  };
 @endphp
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div class="container">
+  <div class="container">
 
-        <div class="hero-photo">
-            @if($profilePhoto)
-                <img src="{{ $profilePhoto }}" alt="{{ $fullName }}">
-            @else
-                <div class="hero-placeholder">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-            @endif
+    {{-- Profile picture (icon if there is no photo) --}}
+    <div class="hero-photo">
+      @if($profilePhoto)
+        <img src="{{ $profilePhoto }}" alt="{{ $fullName }}">
+      @else
+        <div class="hero-placeholder">
+          <i class="fa-solid fa-user"></i>
         </div>
-
-        <p class="hero-hello">Hello, I'm</p>
-
-        <h1>{{ $fullName }}</h1>
-
-        @if($jobTitle)
-            <p class="hero-role">{{ $jobTitle }}</p>
-        @endif
-
-        <p class="hero-desc">
-            Welcome to my portfolio! Here, you can explore my background, educational achievements, skills, projects, and experiences that reflect my personal and professional journey.
-        </p>
-
-        <div class="hero-actions">
-            <a href="#projects" class="btn btn--solid">
-                Explore My Work
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <a href="#contact" class="btn btn--line">
-                Let's Connect
-            </a>
-        </div>
-
-        @if($heroMeta)
-            <p class="hero-meta">{{ $heroMeta }}</p>
-        @endif
-
+      @endif
     </div>
+
+    {{-- Name and job title --}}
+    <p class="hero-hello">Hello, I'm</p>
+
+    <h1>{{ $fullName }}</h1>
+
+    @if($jobTitle)
+      <p class="hero-role">{{ $jobTitle }}</p>
+    @endif
+
+    {{-- Short welcome text --}}
+    <p class="hero-desc">
+      Welcome to my portfolio! Here, you can explore my background, educational achievements, skills, projects, and experiences that reflect my personal and professional journey.
+    </p>
+
+    {{-- Buttons that scroll to Projects and Contact --}}
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn--solid">
+        Explore My Work
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <a href="#contact" class="btn btn--line">
+        Let's Connect
+      </a>
+    </div>
+
+    {{-- Address and email line --}}
+    @if($heroMeta)
+      <p class="hero-meta">{{ $heroMeta }}</p>
+    @endif
+
+  </div>
 </section>
 
 
 <!-- ABOUT -->
 <section class="section" id="about">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">Who I am</span>
-            <h2 class="section-title">About Me</h2>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">Who I am</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
 
-        <div>
+    <div>
 
-            <p class="about-text">
-                {{ $aboutText ?: 'I am someone who enjoys learning, exploring new ideas, and developing skills through meaningful experiences and projects.' }}
-            </p>
+      {{-- About text (default text if empty) --}}
+      <p class="about-text">
+        {{ $aboutText ?: 'I am someone who enjoys learning, exploring new ideas, and developing skills through meaningful experiences and projects.' }}
+      </p>
 
-            @if($jobTitle || !empty($portfolio->address))
-                <div class="fields fields--two about-facts">
+      {{-- Job title and location --}}
+      @if($jobTitle || !empty($portfolio->address))
+        <div class="fields fields--two about-facts">
 
-                    @if($jobTitle)
-                        <div class="field">
-                            <span class="label">Currently</span>
-                            <span class="value">{{ $jobTitle }}</span>
-                        </div>
-                    @endif
+          @if($jobTitle)
+            <div class="field">
+              <span class="label">Currently</span>
+              <span class="value">{{ $jobTitle }}</span>
+            </div>
+          @endif
 
-                    @if(!empty($portfolio->address))
-                        <div class="field">
-                            <span class="label">Location</span>
-                            <span class="value">{{ $portfolio->address }}</span>
-                        </div>
-                    @endif
-
-                </div>
-            @endif
-
-            <a href="#personal-details" class="link about-link">
-                View personal details
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+          @if(!empty($portfolio->address))
+            <div class="field">
+              <span class="label">Location</span>
+              <span class="value">{{ $portfolio->address }}</span>
+            </div>
+          @endif
 
         </div>
+      @endif
+
+      <a href="#personal-details" class="link about-link">
+        View personal details
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
 
     </div>
+
+  </div>
 </section>
 
 
 <!-- PERSONAL DETAILS -->
 <section class="section section--sand" id="personal-details">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">The basics</span>
-            <h2 class="section-title">Personal Details</h2>
+    <div class="section-head">
+      <span class="eyebrow">The basics</span>
+      <h2 class="section-title">Personal Details</h2>
+    </div>
+
+    <div class="details">
+
+      {{-- One row for each filled-in detail --}}
+      @foreach($details as $detail)
+        <div class="field">
+          <span class="label">{{ $detail['label'] }}</span>
+          <span class="value">{{ $detail['value'] }}</span>
         </div>
-
-        <div class="details">
-
-            @foreach($details as $detail)
-                <div class="field">
-                    <span class="label">{{ $detail['label'] }}</span>
-                    <span class="value">{{ $detail['value'] }}</span>
-                </div>
-            @endforeach
-
-        </div>
+      @endforeach
 
     </div>
+
+  </div>
 </section>
 
 
@@ -1146,22 +1192,23 @@ footer a {
 @if($skillList->isNotEmpty())
 
 <section class="section" id="skills">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">What I do</span>
-            <h2 class="section-title">Skills &amp; Expertise</h2>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">What I do</span>
+      <h2 class="section-title">Skills &amp; Expertise</h2>
+    </div>
 
-        <div class="skills">
+    <div class="skills">
 
-            @foreach($skillList as $skillName)
-                <span class="skill">{{ $skillName }}</span>
-            @endforeach
-
-        </div>
+      {{-- One tag for each skill --}}
+      @foreach($skillList as $skillName)
+        <span class="skill">{{ $skillName }}</span>
+      @endforeach
 
     </div>
+
+  </div>
 </section>
 
 @endif
@@ -1171,44 +1218,46 @@ footer a {
 @if($portfolio->projects && $portfolio->projects->count() > 0)
 
 <section class="section section--sand" id="projects">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">What I've built</span>
-            <h2 class="section-title">Projects</h2>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">What I've built</span>
+      <h2 class="section-title">Projects</h2>
+    </div>
 
-        <div class="projects">
+    <div class="projects">
 
-            @foreach($portfolio->projects as $project)
+      {{-- One entry for each project --}}
+      @foreach($portfolio->projects as $project)
 
-                <article class="project">
+        <article class="project">
 
-                    <div>
-                        <h3>{{ $project->name }}</h3>
+          <div>
+            <h3>{{ $project->name }}</h3>
 
-                        <p>
-                            {{ !empty($project->description) ? $project->description : 'A project showcasing my skills, ideas, and learning experience.' }}
-                        </p>
-                    </div>
+            <p>
+              {{ !empty($project->description) ? $project->description : 'A project showcasing my skills, ideas, and learning experience.' }}
+            </p>
+          </div>
 
-                    @if(!empty($project->link))
-                        <a href="{{ $project->link }}"
+          {{-- Link is only shown when the project has one --}}
+          @if(!empty($project->link))
+            <a href="{{ $project->link }}"
                            class="link"
                            target="_blank"
                            rel="noopener noreferrer">
-                            View project
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    @endif
+              View project
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          @endif
 
-                </article>
+        </article>
 
-            @endforeach
-
-        </div>
+      @endforeach
 
     </div>
+
+  </div>
 </section>
 
 @endif
@@ -1218,54 +1267,56 @@ footer a {
 @if($portfolio->experiences && $portfolio->experiences->count() > 0)
 
 <section class="section" id="experience">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">Where I worked</span>
-            <h2 class="section-title">Work Experience</h2>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">Where I worked</span>
+      <h2 class="section-title">Work Experience</h2>
+    </div>
 
-        <div class="entries">
+    <div class="entries">
 
-            @foreach($portfolio->experiences as $experience)
+      {{-- One entry for each job --}}
+      @foreach($portfolio->experiences as $experience)
 
-                <article class="entry">
+        <article class="entry">
 
-                    <div class="fields">
+          <div class="fields">
 
-                        <div class="field field--main">
-                            <span class="label">Role</span>
-                            <span class="value">{{ $experience->position }}</span>
-                        </div>
+            <div class="field field--main">
+              <span class="label">Role</span>
+              <span class="value">{{ $experience->position }}</span>
+            </div>
 
-                        @if(!empty($experience->company))
-                            <div class="field">
-                                <span class="label">Company</span>
-                                <span class="value">{{ $experience->company }}</span>
-                            </div>
-                        @endif
+            @if(!empty($experience->company))
+              <div class="field">
+                <span class="label">Company</span>
+                <span class="value">{{ $experience->company }}</span>
+              </div>
+            @endif
 
-                        <div class="field">
-                            <span class="label">Duration</span>
-                            <span class="value">{{ $experience->duration ?: 'Professional Experience' }}</span>
-                        </div>
+            <div class="field">
+              <span class="label">Duration</span>
+              <span class="value">{{ $experience->duration ?: 'Professional Experience' }}</span>
+            </div>
 
-                    </div>
+          </div>
 
-                    @if(!empty($experience->description))
-                        <div class="entry-note">
-                            <span class="label">What I did</span>
-                            <p>{{ $experience->description }}</p>
-                        </div>
-                    @endif
+          {{-- Description is only shown when filled in --}}
+          @if(!empty($experience->description))
+            <div class="entry-note">
+              <span class="label">What I did</span>
+              <p>{{ $experience->description }}</p>
+            </div>
+          @endif
 
-                </article>
+        </article>
 
-            @endforeach
-
-        </div>
+      @endforeach
 
     </div>
+
+  </div>
 </section>
 
 @endif
@@ -1275,54 +1326,55 @@ footer a {
 @if($portfolio->educations && $portfolio->educations->count() > 0)
 
 <section class="section section--sand" id="education">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">Studies</span>
-            <h2 class="section-title">Education</h2>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">Studies</span>
+      <h2 class="section-title">Education</h2>
+    </div>
 
-        <div class="entries">
+    <div class="entries">
 
-            @foreach($portfolio->educations as $education)
+      {{-- One entry for each school --}}
+      @foreach($portfolio->educations as $education)
 
-                @php
-                    $schoolName  = $education->school_name ?? $education->institution ?? '';
-                    $programName = $education->program ?? $education->degree ?? $education->education_level ?? $education->level ?? 'Education';
-                @endphp
+        @php
+          $schoolName  = $education->school_name ?? $education->institution ?? '';
+          $programName = $education->program ?? $education->degree ?? $education->education_level ?? $education->level ?? 'Education';
+        @endphp
 
-                <article class="entry">
+        <article class="entry">
 
-                    <div class="fields fields--edu">
+          <div class="fields fields--edu">
 
-                        @if(!empty($schoolName))
-                            <div class="field field--main">
-                                <span class="label">School</span>
-                                <span class="value">{{ $schoolName }}</span>
-                            </div>
-                        @endif
+            @if(!empty($schoolName))
+              <div class="field field--main">
+                <span class="label">School</span>
+                <span class="value">{{ $schoolName }}</span>
+              </div>
+            @endif
 
-                        <div class="field">
-                            <span class="label">Program</span>
-                            <span class="value">{{ $programName }}</span>
-                        </div>
+            <div class="field">
+              <span class="label">Program</span>
+              <span class="value">{{ $programName }}</span>
+            </div>
 
-                        @if(!empty($education->year))
-                            <div class="field">
-                                <span class="label">Year</span>
-                                <span class="value">{{ $education->year }}</span>
-                            </div>
-                        @endif
+            @if(!empty($education->year))
+              <div class="field">
+                <span class="label">Year</span>
+                <span class="value">{{ $education->year }}</span>
+              </div>
+            @endif
 
-                    </div>
+          </div>
 
-                </article>
+        </article>
 
-            @endforeach
-
-        </div>
+      @endforeach
 
     </div>
+
+  </div>
 </section>
 
 @endif
@@ -1330,147 +1382,149 @@ footer a {
 
 <!-- CONTACT -->
 <section class="section" id="contact">
-    <div class="container section-grid">
+  <div class="container section-grid">
 
-        <div class="section-head">
-            <span class="eyebrow">Say hello</span>
-            <h2 class="section-title">Get in Touch</h2>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">Say hello</span>
+      <h2 class="section-title">Get in Touch</h2>
+    </div>
 
-        <div class="contact-text">
+    <div class="contact-text">
 
-            <h3>Let's Connect and Create Something Amazing.</h3>
+      <h3>Let's Connect and Create Something Amazing.</h3>
 
-            <p>I'm open to job opportunities and collaborations. Feel free to reach out.</p>
+      <p>I'm open to job opportunities and collaborations. Feel free to reach out.</p>
 
-            <div class="contact-actions">
+      {{-- Email and phone buttons (only shown when filled in) --}}
+      <div class="contact-actions">
 
-                @if(!empty($portfolio->email))
-                    <a href="mailto:{{ $portfolio->email }}" class="btn btn--solid">
-                        <i class="fa-regular fa-envelope"></i>
-                        Email Me
-                    </a>
-                @endif
+        @if(!empty($portfolio->email))
+          <a href="mailto:{{ $portfolio->email }}" class="btn btn--solid">
+            <i class="fa-regular fa-envelope"></i>
+            Email Me
+          </a>
+        @endif
 
-                @if(!empty($portfolio->phone))
-                    <a href="tel:{{ $portfolio->phone }}" class="btn btn--line">
-                        <i class="fa-solid fa-phone"></i>
-                        {{ $portfolio->phone }}
-                    </a>
-                @endif
+        @if(!empty($portfolio->phone))
+          <a href="tel:{{ $portfolio->phone }}" class="btn btn--line">
+            <i class="fa-solid fa-phone"></i>
+            {{ $portfolio->phone }}
+          </a>
+        @endif
 
-            </div>
+      </div>
 
-            @if($portfolio->links && $portfolio->links->count() > 0)
+      {{-- Social media and website links --}}
+      @if($portfolio->links && $portfolio->links->count() > 0)
 
-                <div class="socials">
+        <div class="socials">
 
-                    @foreach($portfolio->links as $link)
+          @foreach($portfolio->links as $link)
 
-                        <a href="{{ $link->url }}"
+            <a href="{{ $link->url }}"
                            class="social"
                            target="_blank"
                            rel="noopener noreferrer">
-                            <i class="{{ $socialIcon($link->platform ?? '') }}"></i>
-                            {{ ucfirst($link->platform ?? 'Website') }}
-                        </a>
+              <i class="{{ $socialIcon($link->platform ?? '') }}"></i>
+              {{ ucfirst($link->platform ?? 'Website') }}
+            </a>
 
-                    @endforeach
-
-                </div>
-
-            @endif
+          @endforeach
 
         </div>
 
+      @endif
+
     </div>
+
+  </div>
 </section>
 
 
 <!-- FOOTER -->
 <footer>
-    <p>
-        &copy; {{ date('Y') }} {{ $fullName }}. All rights reserved.
-        &nbsp;·&nbsp;
-        <a href="#home">Back to top</a>
-    </p>
+  <p>
+    &copy; {{ date('Y') }} {{ $fullName }}. All rights reserved.
+    &nbsp;·&nbsp;
+    <a href="#home">Back to top</a>
+  </p>
 </footer>
 
 
 <!-- NAVIGATION SCRIPT -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const header = document.getElementById('siteHeader');
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('navMenu');
-    const links = document.querySelectorAll('.nav-link');
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  const links = document.querySelectorAll('.nav-link');
 
-    if (!header || !toggle || !menu) {
-        return;
-    }
+  if (!header || !toggle || !menu) {
+    return;
+  }
 
-    // Open and close the mobile navigation.
-    toggle.addEventListener('click', function () {
-        const isOpen = menu.classList.toggle('open');
+  // Open and close the mobile navigation.
+  toggle.addEventListener('click', function () {
+    const isOpen = menu.classList.toggle('open');
 
-        toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close the mobile menu when a navigation link is clicked.
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
     });
+  });
 
-    // Close the mobile menu when a navigation link is clicked.
-    links.forEach(function (link) {
-        link.addEventListener('click', function () {
-            menu.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-        });
-    });
+  // Add a shadow to the navigation when scrolling.
+  function updateHeader() {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }
 
-    // Add a shadow to the navigation when scrolling.
-    function updateHeader() {
-        header.classList.toggle('scrolled', window.scrollY > 20);
-    }
+  window.addEventListener('scroll', updateHeader, {
+    passive: true
+  });
 
-    window.addEventListener('scroll', updateHeader, {
-        passive: true
-    });
+  updateHeader();
 
-    updateHeader();
+  // Highlight the navigation link for the current section.
+  const sections = document.querySelectorAll('section[id]');
 
-    // Highlight the navigation link for the current section.
-    const sections = document.querySelectorAll('section[id]');
-
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                const currentId = entry.target.id;
-
-                links.forEach(function (link) {
-                    const isActive =
-                        link.getAttribute('href') === '#' + currentId;
-
-                    link.classList.toggle('is-active', isActive);
-                });
-            });
-        }, {
-            rootMargin: '-20% 0px -65% 0px'
-        });
-
-        sections.forEach(function (section) {
-            observer.observe(section);
-        });
-    }
-
-    // Close the mobile menu when returning to desktop width
-    // (1000px matches the CSS breakpoint).
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 1000) {
-            menu.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          return;
         }
+
+        const currentId = entry.target.id;
+
+        links.forEach(function (link) {
+          const isActive =
+            link.getAttribute('href') === '#' + currentId;
+
+          link.classList.toggle('is-active', isActive);
+        });
+      });
+    }, {
+      rootMargin: '-20% 0px -65% 0px'
     });
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+  }
+
+  // Close the mobile menu when returning to desktop width
+  // (1000px matches the CSS breakpoint).
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 1000) {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 });
 </script>
 
