@@ -535,7 +535,9 @@
 
         @csrf
         @method('PUT')
-
+        <input type="hidden" name="template" value="{{ $template ?? '' }}">
+        <input type="hidden" name="return_to" value="{{ request()->query('template') ? 'preview' : 'templates' }}">
+       
         <!-- PERSONAL INFORMATION -->
 
         <section class="form-section">

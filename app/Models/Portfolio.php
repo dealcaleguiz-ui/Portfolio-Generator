@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
-    protected $fillable = ['full_name', 'email', 'phone', 'address', 'about', 'photo', 'template'];
+    protected $fillable = [
+        'user_id', 'full_name', 'title', 'email', 'phone', 'address',
+        'website', 'about', 'photo', 'template',
+    ];
 
+    public function user()        { return $this->belongsTo(User::class); }
     public function educations()  { return $this->hasMany(Education::class); }
     public function skills()      { return $this->hasMany(Skill::class); }
     public function projects()    { return $this->hasMany(Project::class); }
