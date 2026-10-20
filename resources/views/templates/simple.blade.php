@@ -905,13 +905,14 @@ footer a {
         My Portfolios
       </a>
 
-      <a href="{{ route('portfolios.edit', $portfolio->id) }}" class="navbar-button">
-        Edit Portfolio
+      <a href="{{ route('portfolios.edit', ['portfolio' => $portfolio->id, 'template' => 'simple']) }}" class="navbar-button">
+          Edit Portfolio
       </a>
 
       <a href="{{ route('portfolios.templates', $portfolio->id) }}" class="navbar-button">
         Change Template
       </a>
+        
     </div>
 
   </div>
@@ -1526,6 +1527,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+</script>
+
+<script>
+    function toggleDownloadMenu() {
+        document.getElementById('downloadMenu').classList.toggle('show');
+    }
+
+    document.addEventListener('click', function (event) {
+        const dropdown = document.querySelector('.download-dropdown');
+        const menu = document.getElementById('downloadMenu');
+
+        if (dropdown && menu && !dropdown.contains(event.target)) {
+            menu.classList.remove('show');
+        }
+    });
 </script>
 
 </body>

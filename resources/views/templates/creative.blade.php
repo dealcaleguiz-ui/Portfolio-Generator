@@ -330,7 +330,7 @@ footer a { color: var(--primary-l); font-weight: 700; }
         <a href="{{ route('portfolios.index') }}" class="navbar-brand">Portfolio Preview · PortfolioGen</a>
         <div class="navbar-actions">
             <a href="{{ route('portfolios.index') }}" class="navbar-button">My Portfolios</a>
-            <a href="{{ route('portfolios.edit', $portfolio->id) }}" class="navbar-button">Edit Portfolio</a>
+            <a href="{{ route('portfolios.edit', ['portfolio' => $portfolio->id, 'template' => 'creative']) }}"class="navbar-button"> Edit Portfolio</a>
             <a href="{{ route('portfolios.templates', $portfolio->id) }}" class="navbar-button">Change Template</a>
         </div>
     </div>

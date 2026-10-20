@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Handles everything about a portfolio:
@@ -21,12 +22,13 @@ class PortfolioController extends Controller
        MANAGE PORTFOLIOS (list, create, edit, delete)
     ========================================= */
 
-    // Manage page: list every portfolio, newest first
     public function index()
     {
-        return view('portfolios.index', [
-            'portfolios' => Portfolio::latest()->get(),
-        ]);
+        $portfolios = Portfolio::where('user_id', Auth::id())
+            ->latest()
+            ->get();
+
+        return view('portfolios.index', compact('portfolios'));
     }
 
     // Show the empty form for a new portfolio
@@ -38,10 +40,13 @@ class PortfolioController extends Controller
     // Save a new portfolio to the database, then go choose a template
     public function store(Request $r)
     {
-        // Save the personal information
-        $portfolio = Portfolio::create($this->validated($r));
+        $portfolio = Portfolio::create(
+            array_merge(
+                $this->validated($r),
+                ['user_id' => Auth::id()]
+            )
+        );
 
-        // Save education, skills, projects, experience and links
         $this->saveChildren($portfolio, $r);
 
         return redirect()->to(
@@ -50,34 +55,63 @@ class PortfolioController extends Controller
     }
 
     // Show the form filled with the saved information
-    public function edit(Portfolio $portfolio)
+    // Show the form filled with the saved information
+    public function edit(Request $request, Portfolio $portfolio)
     {
+        abort_unless(
+            (int) $portfolio->user_id === (int) auth()->id(),
+            403
+        );
+
         $portfolio->load(self::RELATIONS);
 
-        return view('portfolios.edit', compact('portfolio'));
+        $template = in_array($request->query('template'), self::TEMPLATES, true)
+            ? $request->query('template')
+            : ($portfolio->template ?: 'simple');
+
+        return view('portfolios.edit', compact('portfolio', 'template'));
     }
 
     // Save the changes, then go back to the template page
-    public function update(Request $r, Portfolio $portfolio)
+        public function update(Request $r, Portfolio $portfolio)
     {
-        // Update the personal information
+        abort_unless(
+            (int) $portfolio->user_id === (int) auth()->id(),
+            403
+        );
+
         $portfolio->update($this->validated($r));
 
-        // Replace education, skills, projects, experience and links
         $this->saveChildren($portfolio, $r);
 
-        return redirect()->to(
-            url('/portfolios/' . $portfolio->id . '/templates')
-        )->with('ok', 'Portfolio updated!');
+        $template = in_array($r->input('template'), self::TEMPLATES, true)
+            ? $r->input('template')
+            : ($portfolio->template ?: 'simple');
+
+        if ($r->input('return_to') === 'templates') {
+            return redirect()->route('portfolios.templates', [
+                'portfolio' => $portfolio->id,
+            ])->with('ok', 'Portfolio updated!');
+        }
+
+        return redirect()->route('portfolios.show', [
+            'portfolio' => $portfolio->id,
+            'template' => $template,
+        ])->with('ok', 'Portfolio updated!');
     }
 
-    // Delete a portfolio (its related rows are removed by the database)
     public function destroy(Portfolio $portfolio)
     {
+        abort_unless(
+            (int) $portfolio->user_id === (int) auth()->id(),
+            403
+        );
+
         $portfolio->delete();
 
-        return redirect()->to(route('portfolios.index', [], false))
-            ->with('ok', 'Portfolio deleted.');
+        return redirect()
+            ->route('portfolios.index')
+            ->with('ok', 'Portfolio deleted successfully.');
     }
 
     /* =========================================
@@ -87,13 +121,22 @@ class PortfolioController extends Controller
     // Template selection page: shows the 3 templates
     public function templates(Portfolio $portfolio)
     {
+        abort_unless(
+            (int) $portfolio->user_id === (int) auth()->id(),
+            403
+        );
+
         return view('portfolios.templates', compact('portfolio'));
     }
 
     // Save the chosen template, then open the preview
     public function chooseTemplate(Request $r, Portfolio $portfolio)
     {
-        // Only simple, modern or creative are allowed
+        abort_unless(
+            (int) $portfolio->user_id === (int) auth()->id(),
+            403
+        );
+
         $r->validate([
             'template' => 'required|in:' . implode(',', self::TEMPLATES),
         ]);
@@ -112,10 +155,13 @@ class PortfolioController extends Controller
     // Preview page (with the preview bar for editing / changing template)
     public function show(Request $r, Portfolio $portfolio)
     {
+        abort_unless(
+            (int) $portfolio->user_id === (int) auth()->id(),
+            403
+        );
+
         $portfolio->load(self::RELATIONS);
 
-        // ?template=... lets the user try a template before saving it.
-        // Otherwise use the saved template, or "simple" if none was chosen.
         $tpl = in_array($r->query('template'), self::TEMPLATES)
             ? $r->query('template')
             : ($portfolio->template ?: 'simple');
@@ -138,7 +184,7 @@ class PortfolioController extends Controller
             'isPublic'  => true, // hides the preview bar in the template
         ]);
     }
-
+     
     /* =========================================
        HELPERS (used only inside this class)
     ========================================= */

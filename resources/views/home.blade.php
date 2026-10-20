@@ -422,15 +422,34 @@
 <body>
 
   <!-- Navigation -->
+  <!-- Navigation -->
   <nav>
-    <!-- Site name -->
-    <div class="logo">PortfolioGen</div>
+      <!-- Site name -->
+      <div class="logo">PortfolioGen</div>
 
-    <!-- Links to Home and My Portfolios -->
-    <div>
-      <a href="{{ route('home') }}">Home</a>
-      <a href="{{ route('portfolios.index') }}">My Portfolios</a>
-    </div>
+      <!-- Navigation links -->
+      <div>
+          <a href="{{ route('home') }}">Home</a>
+
+          @auth
+              <a href="{{ route('portfolios.index') }}">My Portfolios</a>
+
+              <form action="{{ route('logout') }}" method="POST"
+                    style="display: inline;">
+                  @csrf
+                  <button type="submit"
+                          style="background: none; border: none; cursor: pointer;
+                                color: #344563; margin-left: 22px;
+                                font-size: 14px; font-weight: 700;
+                                font-family: inherit;">
+                      Logout
+                  </button>
+              </form>
+          @else
+              <a href="{{ route('login') }}">Login</a>
+              <a href="{{ route('register') }}">Register</a>
+          @endauth
+      </div>
   </nav>
 
   <main>

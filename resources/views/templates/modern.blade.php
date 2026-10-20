@@ -1700,7 +1700,9 @@
 
         <div class="management-links">
           <a href="{{ route('portfolios.index') }}">My Portfolios</a>
-          <a href="{{ route('portfolios.edit', $portfolio->id) }}">Edit Portfolio</a>
+          <a href="{{ route('portfolios.edit', ['portfolio' => $portfolio->id, 'template' => 'modern']) }}">
+              Edit Portfolio
+          </a>
           <a href="{{ route('portfolios.templates', $portfolio->id) }}">Change Template</a>
         </div>
       </div>
