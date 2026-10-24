@@ -87,6 +87,7 @@
         display: block;
     }
 
+
     @media (max-width: 480px) {
         .share-download-widget {
             right: 14px;
@@ -98,14 +99,38 @@
         }
     }
 
-    @media print {
-        .share-download-widget {
+     @media print {
+        /* Hide menus, bars and the share button */
+        .share-download-widget,
+        .portfolio-navbar,
+        .management-bar,
+        .site-header,
+        .navbar {
             display: none !important;
         }
 
-        body {
+        /* Keep all colors */
+        * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+        }
+
+        /* Stop sticky titles from overlapping content */
+        .section-head {
+            position: static !important;
+        }
+
+        /* Avoid cutting a card or entry in half between pages */
+        .project,
+        .entry,
+        .experience-row,
+        .project-row,
+        .education-card,
+        .skill-card,
+        .timeline-item,
+        .detail-card,
+        .project-card {
+            break-inside: avoid;
         }
     }
 </style>
