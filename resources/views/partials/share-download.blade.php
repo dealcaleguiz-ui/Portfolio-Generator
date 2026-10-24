@@ -1,4 +1,4 @@
-```html
+
 <style>
     :root {
         --share-primary: var(--primary, #035A52);
@@ -175,8 +175,8 @@
     const pdfButton = document.getElementById('downloadPortfolioPdf');
     const nativeShareButton = document.getElementById('nativePortfolioShare');
 
-  const portfolioUrl = @json(Route::has('portfolios.public') ? route('portfolios.public', ['portfolio' => $portfolio->id]) : url()->current());
-  const portfolioTitle = document.title || 'My Portfolio';
+  const portfolioUrl = @json(url('/p/' . $portfolio->id));
+const portfolioTitle = document.title || 'My Portfolio';
     // Create social-media sharing links.
     document.getElementById('shareFacebook').href =
         'https://www.facebook.com/sharer/sharer.php?u=' +
@@ -275,4 +275,3 @@
     });
 })();
 </script>
-```
