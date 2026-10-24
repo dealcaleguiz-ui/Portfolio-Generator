@@ -1543,6 +1543,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 </script>
+@include('partials.share-download')
 
 </body>
 </html>

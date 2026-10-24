@@ -897,6 +897,7 @@ document.querySelectorAll('.project-card').forEach(function (card) {
     });
 });
 </script>
+@include('partials.share-download')
 
 </body>
 </html>

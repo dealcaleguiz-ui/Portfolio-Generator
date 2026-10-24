@@ -1682,6 +1682,71 @@
         align-items: flex-start;
       }
     }
+
+    /* =========================================
+   MOBILE RESPONSIVENESS FIX
+========================================= */
+
+@media (max-width: 650px) {
+
+    /* Stack About Me and Personal Information */
+    .about-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    /* Give both panels comfortable spacing */
+    .about-panel,
+    .personal-panel {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        padding: 22px;
+    }
+
+    /* Make headings fit smaller screens */
+    .panel-title {
+        font-size: clamp(21px, 6vw, 25px);
+        overflow-wrap: anywhere;
+    }
+
+    /* Improve About Me text readability */
+    .about-text {
+        font-size: 15px;
+        line-height: 1.8;
+        text-align: left;
+        white-space: pre-line;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    /* Place the logo above the navigation links */
+    .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    /* Allow menu links to scroll horizontally */
+    .nav-links {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: nowrap;
+        gap: 18px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent menu labels from breaking awkwardly */
+    .nav-links a {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+}
   </style>
 </head>
 
@@ -2278,6 +2343,11 @@
 
     </div>
   </footer>
+
+@include('partials.share-download')
+
+</body>
+</html>
 
 </body>
 </html>
